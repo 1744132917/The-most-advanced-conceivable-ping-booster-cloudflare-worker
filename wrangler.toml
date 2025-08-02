@@ -1,0 +1,39 @@
+name = "ping-booster-worker"
+main = "src/index.js"
+compatibility_date = "2024-01-01"
+compatibility_flags = ["nodejs_compat"]
+
+[env.production]
+name = "ping-booster-worker-prod"
+
+[env.staging]
+name = "ping-booster-worker-staging"
+
+# KV namespaces for caching and analytics
+[[kv_namespaces]]
+binding = "CACHE_STORE"
+id = "cache_namespace_id"
+preview_id = "cache_namespace_preview_id"
+
+[[kv_namespaces]]
+binding = "ANALYTICS_STORE"
+id = "analytics_namespace_id"
+preview_id = "analytics_namespace_preview_id"
+
+# Durable Objects for real-time monitoring
+[[durable_objects.bindings]]
+name = "PERFORMANCE_MONITOR"
+class_name = "PerformanceMonitor"
+
+# Analytics engine for performance metrics
+[[analytics_engine_datasets]]
+binding = "METRICS"
+
+# Variables for configuration
+[vars]
+MAX_CACHE_TTL = "86400"
+COMPRESSION_LEVEL = "6"
+ENABLE_HTTP3 = "true"
+ENABLE_EARLY_HINTS = "true"
+MONITORING_INTERVAL = "30000"
+FAILOVER_TIMEOUT = "5000"
