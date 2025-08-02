@@ -119,12 +119,12 @@ router.all('*', async (request, env, ctx) => {
     const endTime = Date.now();
     if (typeof requestContext !== 'undefined' && analyticsEngine) {
       ctx.waitUntil(analyticsEngine.recordError({
-        requestId: requestContext.requestId,
+        requestId: requestContext.requestId || crypto.randomUUID(),
         endTime,
         duration: endTime - startTime,
         error: error.message,
-        country: requestContext.country,
-        edgeColo: requestContext.edgeColo
+        country: requestContext.country || 'unknown',
+        edgeColo: requestContext.edgeColo || 'unknown'
       }));
     }
 
