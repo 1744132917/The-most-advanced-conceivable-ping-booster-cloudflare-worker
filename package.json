@@ -1,0 +1,39 @@
+{
+  "name": "ping-booster-worker",
+  "version": "1.0.0",
+  "description": "The most advanced conceivable ping booster cloudflare worker",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "deploy:staging": "wrangler deploy --env staging",
+    "deploy:production": "wrangler deploy --env production",
+    "test": "vitest",
+    "lint": "eslint src/",
+    "format": "prettier --write src/"
+  },
+  "keywords": [
+    "cloudflare",
+    "worker",
+    "ping",
+    "optimization",
+    "latency",
+    "performance",
+    "edge",
+    "cdn"
+  ],
+  "author": "Advanced Ping Booster Team",
+  "license": "MIT",
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20240129.0",
+    "@types/node": "^20.11.5",
+    "eslint": "^8.56.0",
+    "prettier": "^3.2.4",
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.1",
+    "wrangler": "^3.25.0"
+  },
+  "dependencies": {
+    "itty-router": "^4.0.23"
+  }
+}
